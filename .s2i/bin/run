@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "---> Confiuring Seldon"
+
+MODEL_NAME="${MODEL_NAME:-Iris}"
+API_TYPE="${API_TYPE:-REST}"
+SERVICE_TYPE="${SERVICE_TYPE:-MODEL}"
+PERSISTENCE="${PERSISTENCE:-0}"
+
+echo "Using the following settings:"
+echo "MODEL_NAME: ${MODEL_NAME}"
+echo "SERVICE_TYPE: ${SERVICE_TYPE}"
+echo "PERSISTENCE: ${PERSISTENCE}"
+
+echo ""
+
+echo "---> Starting Seldon"
+
+exec seldon-core-microservice $MODEL_NAME --service-type $SERVICE_TYPE --persistence $PERSISTENCE
+
+# /usr/libexec/s2i/run
