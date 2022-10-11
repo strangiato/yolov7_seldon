@@ -1,0 +1,15 @@
+# Adapted from: https://github.com/fuzzylabs/seldon-example/blob/master/iris_server.yaml
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: yolov7
+  namespace: seldon
+spec:
+  name: yolov7
+  predictors:
+  - graph:
+      implementation: SKLEARN_SERVER
+      modelUri: gs://seldon-models/v1.14.0-dev/sklearn/iris
+      name: classifier
+    name: default
+    replicas: 

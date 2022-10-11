@@ -1,0 +1,19 @@
+# Taken from: https://github.com/SeldonIO/seldon-core/issues/3019#issuecomment-1195084727
+# Requires Seldon operator 1.14+
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: yolov7
+spec:
+  name: yolov7
+  predictors:
+    - graph:
+        envSecretRefName: seldon-rclone-secret
+        implementation: TRITON_SERVER
+        modelUri: 's3://my-bucket/yolov7.pt'
+        name: yolov7
+        storageInitializerImage: 'seldonio/rclone-storage-initializer:1.12.0'
+        type: MODEL
+      name: default
+      replicas: 1
+  protocol: v2
