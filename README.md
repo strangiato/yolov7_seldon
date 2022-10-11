@@ -23,4 +23,4 @@ YOLOv7 packaged with Seldon Core, for deployment on OpenShoft cluster
 * https://github.com/SeldonIO/seldon-core/issues/3019
 
 * DASH: https://github.com/codekow/s2i-dash
- * https://dash.plotly.com/
+  * https://dash.plotly.com/
