@@ -1,21 +1,38 @@
 #!/bin/bash
 
-echo "---> Confiuring Seldon"
+run_null(){
+    echo "Usage: insert here"
+    echo ""
+    echo "This container does nothing by default."
+    echo "Ponder the universe with infinate sleep..."
 
-MODEL_NAME="${MODEL_NAME:-YOLOv7}"
-API_TYPE="${API_TYPE:-REST}"
-SERVICE_TYPE="${SERVICE_TYPE:-MODEL}"
-PERSISTENCE="${PERSISTENCE:-0}"
+    sleep infinity
+}
 
-echo "Using the following settings:"
-echo "MODEL_NAME: ${MODEL_NAME}"
-echo "SERVICE_TYPE: ${SERVICE_TYPE}"
-echo "PERSISTENCE: ${PERSISTENCE}"
+run_default(){
+    ${STI_SCRIPTS_PATH}/run
+}
 
-echo ""
+run_seldon(){
+    echo "---> Configuring Seldon"
 
-echo "---> Starting Seldon"
+    MODEL_NAME="${MODEL_NAME:-Main}"
+    API_TYPE="${API_TYPE:-REST}"
+    SERVICE_TYPE="${SERVICE_TYPE:-MODEL}"
+    PERSISTENCE="${PERSISTENCE:-0}"
 
-exec seldon-core-microservice $MODEL_NAME --service-type $SERVICE_TYPE --persistence $PERSISTENCE
+    echo "Using the following settings:"
+    echo "MODEL_NAME: ${MODEL_NAME}"
+    echo "SERVICE_TYPE: ${SERVICE_TYPE}"
+    echo "PERSISTENCE: ${PERSISTENCE}"
 
-# /usr/libexec/s2i/run
+    echo ""
+
+    echo "---> Starting Seldon"
+
+    exec seldon-core-microservice ${MODEL_NAME} --service-type ${SERVICE_TYPE} --persistence ${PERSISTENCE}
+}
+
+# run_default
+run_seldon
+run_null
