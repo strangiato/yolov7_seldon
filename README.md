@@ -15,6 +15,8 @@ bash .s2i/bin/run
 
 # References and Notes
 
+* Cory's Repo forked from this one: https://github.com/codekow/s2i-seldon-example
+
 * Blog: [Building Machine Learning Services in Kubernetes](https://www.makeartwithpython.com/blog/building-ml-services-on-kubernetes/)
 
 * [MLOps Model Serving Tutorial - Seldon Core](https://www.youtube.com/watch?v=L746MuYzX1c)
