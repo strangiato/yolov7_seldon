@@ -13,6 +13,14 @@ bash .s2i/bin/assemble
 bash .s2i/bin/run
 ```
 
+# Building Locally
+
+Note: Requires a Docker daemon to be running
+
+```
+s2i build . seldonio/seldon-core-s2i-python3 yolov7
+```
+
 # References and Notes
 
 * Cory's Repo forked from this one: https://github.com/codekow/s2i-seldon-example
