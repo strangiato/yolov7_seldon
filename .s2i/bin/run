@@ -17,9 +17,9 @@ run_seldon(){
     echo "---> Configuring Seldon"
 
     MODEL_NAME="${MODEL_NAME:-Main}"
-    API_TYPE="${API_TYPE:-REST}"
     SERVICE_TYPE="${SERVICE_TYPE:-MODEL}"
-    PERSISTENCE="${PERSISTENCE:-0}"
+    # Remove this? Deprecated?
+    # PERSISTENCE="${PERSISTENCE:-0}"
 
     echo "Using the following settings:"
     echo "MODEL_NAME: ${MODEL_NAME}"
@@ -30,7 +30,9 @@ run_seldon(){
 
     echo "---> Starting Seldon"
 
-    exec seldon-core-microservice ${MODEL_NAME} --service-type ${SERVICE_TYPE} --persistence ${PERSISTENCE}
+    #exec seldon-core-microservice ${MODEL_NAME} --service-type ${SERVICE_TYPE} --persistence ${PERSISTENCE}
+
+    exec seldon-core-microservice ${MODEL_NAME} --service-type ${SERVICE_TYPE}
 }
 
 # run_default
