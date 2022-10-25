@@ -13,8 +13,6 @@ class Yolo:
         self.model_name = "Yolo"
         self.model_file = "../models/yolov7.pt"
 
-        # self.model = torch.load("data/" + model_name, map_location=torch.device("cpu"))
-
     def load(self):
         logging.info(f"Loading model from {self.model_file}")
 
