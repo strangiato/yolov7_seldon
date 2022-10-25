@@ -6,6 +6,13 @@ name = "pypi"
 [packages]
 seldon-core = "*"
 torch = "*"
+pandas = "*"
+torchvision = "*"
+opencv-python = "*"
+tqdm = "*"
+matplotlib = "*"
+seaborn = "*"
+sklearn = "*"
 
 [dev-packages]
 black = "*"
