@@ -16,15 +16,12 @@ run_default(){
 run_seldon(){
     echo "---> Configuring Seldon"
 
-    MODEL_NAME="${MODEL_NAME:-Main}"
+    MODEL_NAME="${MODEL_NAME:-Yolo}"
     SERVICE_TYPE="${SERVICE_TYPE:-MODEL}"
-    # Remove this? Deprecated?
-    # PERSISTENCE="${PERSISTENCE:-0}"
 
     echo "Using the following settings:"
     echo "MODEL_NAME: ${MODEL_NAME}"
     echo "SERVICE_TYPE: ${SERVICE_TYPE}"
-    echo "PERSISTENCE: ${PERSISTENCE}"
 
     echo ""
 

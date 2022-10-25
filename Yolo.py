@@ -9,7 +9,7 @@ import sys
 sys.path.insert(0, "./data")
 
 
-class Main:
+class Yolo:
     def __init__(self):
         self.model_name = "Main"
         print("**** Calling init ****")

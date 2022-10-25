@@ -1,6 +1,6 @@
 # this file allows you to set environment vars via source to image
 
-MODEL_NAME=Main
+MODEL_NAME=Yolo
 API_TYPE=REST
 # SERVICE_TYPE=TRITON_SERVER
 SERVICE_TYPE=MODEL
