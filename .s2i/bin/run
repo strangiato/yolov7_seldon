@@ -27,7 +27,7 @@ run_seldon(){
 
     echo "---> Starting Seldon"
 
-    #exec seldon-core-microservice ${MODEL_NAME} --service-type ${SERVICE_TYPE} --persistence ${PERSISTENCE}
+    # seldon-core-microservice Yolo --service-type MODEL
 
     exec seldon-core-microservice ${MODEL_NAME} --service-type ${SERVICE_TYPE}
 }
