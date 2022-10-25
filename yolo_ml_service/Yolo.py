@@ -30,4 +30,6 @@ class Yolo:
         if not self.loaded:
             self.load()
 
+        # perform prediction here
+            
         return X
