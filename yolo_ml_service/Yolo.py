@@ -1,45 +1,33 @@
-import os
-import pandas as pd
-import torch
+import errno
 
-model_name = os.environ.get("MODEL_NAME", "Main")
+import logging
 
 import sys
 
-sys.path.insert(0, "./data")
+import torch
 
 
 class Yolo:
     def __init__(self):
-        self.model_name = "Main"
-        print("**** Calling init ****")
+        self.loaded = False
+        self.model_name = "Yolo"
+        self.model_file = "../models/yolov7.pt"
 
-        print(f"**** Loading model = {model_name} ****")
-        # load the model from disk
-        self.model = torch.load("data/" + model_name, map_location=torch.device("cpu"))
+        # self.model = torch.load("data/" + model_name, map_location=torch.device("cpu"))
+
+    def load(self):
+        logging.info(f"Loading model from {self.model_file}")
+
+        try:
+            self.model = torch.load(self.model_file)
+        except IOError:
+            logging.exception(f"Unable to load the modelfile: {self.model_file}")
+            sys.exit(errno.ENOENT)
 
     def predict(self, X, features_names):
-        df = pd.DataFrame(data=X, columns=features_names)
+        logging.debug(f"Performing prediction on feature_names: {features_names} and X: {X}")
 
-        pred = self.model.predict(df)
-        print(f"Returning prediction: {pred}")
-        return pred
+        if not self.loaded:
+            self.load()
 
-    def metrics(self):
-        return [
-            {
-                "type": "COUNTER",
-                "key": "mycounter",
-                "value": 1,
-            },  # a counter which will increase by the given value
-            {
-                "type": "GAUGE",
-                "key": "mygauge",
-                "value": 100,
-            },  # a gauge which will be set to given value
-            {
-                "type": "TIMER",
-                "key": "mytimer",
-                "value": 20.2,
-            },  # a timer which will add sum and count metrics - assumed millisecs
-        ]
+        return X
