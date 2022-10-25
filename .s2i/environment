@@ -1,3 +1,4 @@
+ENABLE_MICROPIPENV=True
 APP_HOME=risk_assessment_ml_service
 
 # this file allows you to set environment vars via source to image
